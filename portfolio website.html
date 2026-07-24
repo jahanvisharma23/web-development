@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jahanvi Sharma | Portfolio</title>
+    <style>
+        /*==========================
+GOOGLE FONT
+==========================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*==========================
+RESET
+==========================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:#ffffff;
+    overflow-x:hidden;
+}
+
+/*==========================
+SCROLLBAR
+==========================*/
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111827;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#38bdf8;
+    border-radius:20px;
+}
+
+/*==========================
+SECTION
+==========================*/
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+    color:#38bdf8;
+}
+
+/*==========================
+NAVBAR
+==========================*/
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    backdrop-filter:blur(12px);
+    background:rgba(15,23,42,.85);
+}
+
+.navbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    width:90%;
+    margin:auto;
+    padding:20px 0;
+
+}
+
+.logo{
+
+    font-size:30px;
+    font-weight:700;
+    color:white;
+    cursor:pointer;
+
+}
+
+.logo span{
+
+    color:#38bdf8;
+
+}
+
+.nav-links{
+
+    display:flex;
+    list-style:none;
+    gap:35px;
+
+}
+
+.nav-links a{
+
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#38bdf8;
+
+}
+
+.menu-btn{
+
+    display:none;
+    color:white;
+    font-size:26px;
+    cursor:pointer;
+
+}
+
+/*==========================
+HOME
+==========================*/
+
+.home{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.home-content{
+
+    max-width:800px;
+
+}
+
+.home h3{
+
+    font-size:28px;
+    color:#94a3b8;
+    margin-bottom:10px;
+
+}
+
+.home h1{
+
+    font-size:70px;
+    margin-bottom:20px;
+
+}
+
+.home h2{
+
+    font-size:35px;
+    color:#38bdf8;
+    min-height:45px;
+    margin-bottom:20px;
+
+}
+
+.home p{
+
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:18px;
+    margin-bottom:35px;
+
+}
+
+/*==========================
+BUTTONS
+==========================*/
+
+.buttons{
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+
+}
+
+.btn{
+
+    display:inline-block;
+
+    padding:14px 35px;
+
+    background:#38bdf8;
+
+    color:#0f172a;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.4s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 0 25px #38bdf8;
+
+}
+
+.btn-outline{
+
+    background:transparent;
+
+    color:white;
+
+    border:2px solid #38bdf8;
+
+}
+
+.btn-outline:hover{
+
+    background:#38bdf8;
+
+    color:#0f172a;
+
+}
+
+/*==========================
+ABOUT
+==========================*/
+
+.about-content{
+
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+    font-size:18px;
+
+    line-height:2;
+
+    color:#cbd5e1;
+
+}
+
+/*==========================
+SKILLS
+==========================*/
+
+.skill-container{
+
+    max-width:800px;
+
+    margin:auto;
+
+}
+
+.skill{
+
+    margin-bottom:30px;
+
+}
+
+.skill span{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:12px;
+
+    background:#1e293b;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.progress div{
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:#38bdf8;
+
+}
+
+.html{
+
+    width:95%;
+
+}
+
+.css{
+
+    width:90%;
+
+}
+
+.js{
+
+    width:88%;
+
+}
+
+.cpp{
+
+    width:82%;
+
+}
+
+.git{
+
+    width:75%;
+
+}
+/*==========================
+PROJECTS
+==========================*/
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:#1e293b;
+    border:2px solid transparent;
+    border-radius:20px;
+    padding:35px 20px;
+    text-align:center;
+    font-size:22px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.project-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    border-color:#38bdf8;
+    color:#38bdf8;
+    box-shadow:0 0 25px rgba(56,189,248,.5);
+}
+
+/*==========================
+CONTACT
+==========================*/
+
+.contact form{
+    max-width:700px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    padding:16px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:#1e293b;
+    color:#fff;
+    font-size:16px;
+    resize:none;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder{
+    color:#94a3b8;
+}
+
+.contact button{
+    align-self:center;
+    cursor:pointer;
+    border:none;
+}
+
+/*==========================
+FOOTER
+==========================*/
+
+footer{
+    background:#111827;
+    text-align:center;
+    padding:25px;
+    color:#94a3b8;
+    margin-top:60px;
+}
+
+/*==========================
+SCROLL TO TOP BUTTON
+==========================*/
+
+#topBtn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:#38bdf8;
+    color:#0f172a;
+    font-size:20px;
+    cursor:pointer;
+    display:none;
+    transition:.3s;
+    z-index:999;
+}
+
+#topBtn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px #38bdf8;
+}
+
+/*==========================
+ANIMATIONS
+==========================*/
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.home-content,
+.about-content,
+.skill-container,
+.project-grid,
+.contact form{
+    animation:fadeUp 1s ease;
+}
+
+/*==========================
+RESPONSIVE
+==========================*/
+
+@media(max-width:768px){
+
+    .navbar{
+        width:95%;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:80px;
+        right:-100%;
+        width:230px;
+        background:#1e293b;
+        flex-direction:column;
+        text-align:center;
+        padding:25px 0;
+        gap:20px;
+        transition:.4s;
+        border-radius:15px;
+    }
+
+    .nav-links.active{
+        right:15px;
+    }
+
+    .home h1{
+        font-size:48px;
+    }
+
+    .home h2{
+        font-size:28px;
+    }
+
+    .home p{
+        font-size:16px;
+    }
+
+    .section-title{
+        font-size:32px;
+    }
+
+    .project-card{
+        font-size:20px;
+        padding:28px 15px;
+    }
+
+    .buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn{
+        width:220px;
+        text-align:center;
+    }
+
+}
+    </style>
+
+</head>
+
+<body>
+
+    <!--================ NAVBAR ================-->
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                Jahanvi<span>.</span>
+            </div>
+
+            <ul class="nav-links">
+
+                <li><a href="#home">Home</a></li>
+
+                <li><a href="#about">About</a></li>
+
+                <li><a href="#skills">Skills</a></li>
+
+                <li><a href="#projects">Projects</a></li>
+
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+
+            <div class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!--================ HOME ================-->
+
+    <section id="home" class="home">
+
+        <div class="home-content">
+
+          <h3>Hello, I'm</h3>
+
+<h1>Jahanvi Sharma</h1>
+
+<h2>
+    <span id="typing"></span>
+</h2>
+
+<p>
+    I design and develop modern, responsive, and interactive websites that combine clean design with seamless user experiences. I enjoy transforming ideas into functional web applications using HTML, CSS, and JavaScript while continuously learning new technologies to build better digital experiences.
+</p>
+
+<div class="hero-info">
+
+    <div class="info-box">
+        <h2>8+</h2>
+        <span>Projects Built</span>
+    </div>
+
+    <div class="info-box">
+        <h2>100%</h2>
+        <span>Responsive Designs</span>
+    </div>
+
+    <div class="info-box">
+        <h2>HTML • CSS • JS</h2>
+        <span>Core Technologies</span>
+    </div>
+
+</div>
+
+<div class="buttons">
+
+    <a href="#projects" class="btn">
+        View Projects
+    </a>
+
+    <a href="#contact" class="btn btn-outline">
+        Contact Me
+    </a>
+
+</div>
+        </div>
+
+    </section>
+
+
+    <!--================ ABOUT ================-->
+
+    <section id="about" class="about">
+
+        <h2 class="section-title">
+            About Me
+        </h2>
+
+        <div class="about-content">
+
+            <p>
+                Hello! I'm <strong>Jahanvi Sharma</strong>, a Computer Science Engineering student
+                passionate about Full Stack Development and Software Development.
+
+                I enjoy building responsive websites and interactive JavaScript projects while
+                continuously improving my programming skills.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!--================ SKILLS ================-->
+
+    <section id="skills" class="skills">
+
+        <h2 class="section-title">
+            Skills
+        </h2>
+
+        <div class="skill-container">
+
+            <div class="skill">
+                <span>HTML</span>
+                <div class="progress">
+                    <div class="html"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span>CSS</span>
+                <div class="progress">
+                    <div class="css"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span>JavaScript</span>
+                <div class="progress">
+                    <div class="js"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span>C++</span>
+                <div class="progress">
+                    <div class="cpp"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span>Git</span>
+                <div class="progress">
+                    <div class="git"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!--================ PROJECTS ================-->
+
+    <section id="projects" class="projects">
+
+        <h2 class="section-title">
+            My Projects
+        </h2>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                🏧 ATM Machine
+            </div>
+
+            <div class="project-card">
+                🏏 Cricket Ground
+            </div>
+
+            <div class="project-card">
+                💱 Currency Converter
+            </div>
+
+            <div class="project-card">
+                🌐 Language Translator
+            </div>
+
+            <div class="project-card">
+                🚦 Traffic Signal
+            </div>
+
+            <div class="project-card">
+                ⌨️ Typing Speed Test
+            </div>
+
+            <div class="project-card">
+                🐍 Snake Game
+            </div>
+
+            <div class="project-card">
+                ✖️ Multiplication Table Generator
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!--================ CONTACT ================-->
+
+    <section id="contact" class="contact">
+
+        <h2 class="section-title">
+            Contact Me
+        </h2>
+
+        <form>
+
+            <input
+                type="text"
+                placeholder="Your Name"
+                required>
+
+            <input
+                type="email"
+                placeholder="Your Email"
+                required>
+
+            <textarea
+                rows="6"
+                placeholder="Your Message"
+                required></textarea>
+
+            <button type="submit" class="btn">
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!--================ FOOTER ================-->
+
+    <footer>
+
+        <p>
+
+            © 2026 Jahanvi Sharma
+
+        </p>
+
+    </footer>
+
+
+    <!-- Scroll Top -->
+
+    <button id="topBtn">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+    <!-- JS -->
+
+    <script>
+        // ===========================
+// Typing Effect
+// ===========================
+const words = [
+    "Web Developer",
+    "Frontend Developer",
+    "JavaScript Enthusiast",
+    "Creative Problem Solver",
+    "Responsive Website Designer"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const typingElement = document.getElementById("typing");
+
+function typeEffect() {
+
+    if (!typingElement) return;
+
+    const currentWord = words[wordIndex];
+
+    if (!deleting) {
+
+        typingElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1500);
+            return;
+        }
+
+    } else {
+
+        typingElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+
+    }
+
+    setTimeout(typeEffect, deleting ? 60 : 120);
+}
+
+typeEffect();
+
+
+// ===========================
+// Mobile Menu
+// ===========================
+
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+
+// ===========================
+// Close Menu on Click
+// ===========================
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+// ===========================
+// Scroll To Top Button
+// ===========================
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 300) {
+
+        topBtn.style.display = "block";
+
+    } else {
+
+        topBtn.style.display = "none";
+
+    }
+
+});
+
+topBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+        behavior: "smooth"
+
+    });
+
+});
+
+
+// ===========================
+// Active Navigation
+// ===========================
+
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+
+        if (pageYOffset >= sectionTop) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navItems.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+
+// ===========================
+// Smooth Reveal Animation
+// ===========================
+
+const revealElements = document.querySelectorAll(
+    ".project-card,.skill,.about-content,.contact form"
+);
+
+function reveal() {
+
+    const trigger = window.innerHeight - 100;
+
+    revealElements.forEach(el => {
+
+        const top = el.getBoundingClientRect().top;
+
+        if (top < trigger) {
+
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+}
+
+revealElements.forEach(el => {
+
+    el.style.opacity = "0";
+    el.style.transform = "translateY(50px)";
+    el.style.transition = "all .8s ease";
+
+});
+
+window.addEventListener("scroll", reveal);
+reveal();
+
+
+// ===========================
+// Project Card Hover Effect
+// ===========================
+
+const cards = document.querySelectorAll(".project-card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+
+        card.style.transform = "translateY(-12px) scale(1.05)";
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "translateY(0)";
+
+    });
+
+});
+
+
+// ===========================
+// Contact Form
+// ===========================
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    alert("Thank you! Your message has been sent.");
+
+    form.reset();
+
+});
+
+
+// ===========================
+// Navbar Shadow on Scroll
+// ===========================
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 50){
+
+        header.style.boxShadow = "0 5px 20px rgba(0,0,0,.3)";
+
+    }else{
+
+        header.style.boxShadow = "none";
+
+    }
+
+});
+    </script>
+
+</body>
+</html>

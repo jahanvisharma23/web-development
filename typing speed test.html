@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+
+    background:#fff;
+    width:850px;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+h1{
+
+    text-align:center;
+    margin-bottom:25px;
+    color:#333;
+}
+
+.paragraph-box{
+
+    background:#f3f5f8;
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
+    font-size:22px;
+    line-height:40px;
+}
+
+.correct{
+
+    color:green;
+}
+
+.incorrect{
+
+    color:red;
+    background:#ffd6d6;
+}
+
+.active{
+
+    background:yellow;
+}
+
+textarea{
+
+    width:100%;
+    height:150px;
+    resize:none;
+    padding:15px;
+    font-size:18px;
+    border-radius:10px;
+    outline:none;
+    border:2px solid #2575fc;
+}
+
+.stats{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:15px;
+    margin:25px 0;
+}
+
+.card{
+
+    background:#2575fc;
+    color:white;
+    border-radius:10px;
+    text-align:center;
+    padding:15px;
+}
+
+.card h2{
+
+    font-size:32px;
+    margin-bottom:5px;
+}
+
+button{
+
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#6a11cb;
+    color:white;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+
+    background:#5310a8;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>⌨ Typing Speed Test</h1>
+
+    <div class="paragraph-box">
+        <p id="paragraph"></p>
+    </div>
+
+    <textarea
+        id="input"
+        placeholder="Start typing here..."
+        autofocus
+    ></textarea>
+
+    <div class="stats">
+
+        <div class="card">
+            <h2 id="timer">60</h2>
+            <span>Time</span>
+        </div>
+
+        <div class="card">
+            <h2 id="wpm">0</h2>
+            <span>WPM</span>
+        </div>
+
+        <div class="card">
+            <h2 id="cpm">0</h2>
+            <span>CPM</span>
+        </div>
+
+        <div class="card">
+            <h2 id="accuracy">100%</h2>
+            <span>Accuracy</span>
+        </div>
+
+        <div class="card">
+            <h2 id="mistakes">0</h2>
+            <span>Mistakes</span>
+        </div>
+
+    </div>
+
+    <button id="restart">Restart Test</button>
+
+</div>
+
+<script>
+    const paragraphs = [
+
+"The quick brown fox jumps over the lazy dog near the river every single morning.",
+
+"Programming is the process of creating a set of instructions that tell a computer how to perform a task.",
+
+"Practice every day to improve your typing speed accuracy and confidence while using a keyboard.",
+
+"JavaScript is one of the most popular programming languages used to build interactive web applications.",
+
+"Success comes from consistent effort patience and continuous learning rather than overnight achievements."
+
+];
+
+const paragraph=document.getElementById("paragraph");
+const input=document.getElementById("input");
+
+const timer=document.getElementById("timer");
+const wpm=document.getElementById("wpm");
+const cpm=document.getElementById("cpm");
+const accuracy=document.getElementById("accuracy");
+const mistakes=document.getElementById("mistakes");
+
+const restart=document.getElementById("restart");
+
+let timeLeft=60;
+let interval;
+let started=false;
+
+let charIndex=0;
+let mistakeCount=0;
+
+function loadParagraph(){
+
+    const random=paragraphs[Math.floor(Math.random()*paragraphs.length)];
+
+    paragraph.innerHTML="";
+
+    random.split("").forEach(char=>{
+
+        const span=document.createElement("span");
+        span.innerText=char;
+        paragraph.appendChild(span);
+
+    });
+
+    paragraph.querySelectorAll("span")[0].classList.add("active");
+
+}
+
+loadParagraph();
+
+function startTimer(){
+
+    interval=setInterval(()=>{
+
+        timeLeft--;
+
+        timer.innerText=timeLeft;
+
+        if(timeLeft===0){
+
+            clearInterval(interval);
+
+            input.disabled=true;
+
+        }
+
+    },1000);
+
+}
+
+input.addEventListener("input",()=>{
+
+    if(!started){
+
+        startTimer();
+        started=true;
+
+    }
+
+    const characters=paragraph.querySelectorAll("span");
+
+    const typed=input.value.charAt(charIndex);
+
+    if(charIndex<characters.length && timeLeft>0){
+
+        if(typed==characters[charIndex].innerText){
+
+            characters[charIndex].classList.add("correct");
+
+        }else{
+
+            characters[charIndex].classList.add("incorrect");
+            mistakeCount++;
+
+        }
+
+        characters[charIndex].classList.remove("active");
+
+        charIndex++;
+
+        if(charIndex<characters.length){
+
+            characters[charIndex].classList.add("active");
+
+        }
+
+        mistakes.innerText=mistakeCount;
+
+        let correct=charIndex-mistakeCount;
+
+        let acc=Math.round((correct/charIndex)*100);
+
+        if(isNaN(acc)){
+
+            acc=100;
+
+        }
+
+        accuracy.innerText=acc+"%";
+
+        cpm.innerText=correct;
+
+        let words=correct/5;
+
+        let minutes=(60-timeLeft)/60;
+
+        if(minutes>0){
+
+            wpm.innerText=Math.round(words/minutes);
+
+        }
+
+    }
+
+});
+
+restart.addEventListener("click",()=>{
+
+    clearInterval(interval);
+
+    timeLeft=60;
+
+    started=false;
+
+    charIndex=0;
+
+    mistakeCount=0;
+
+    input.value="";
+
+    input.disabled=false;
+
+    timer.innerText=60;
+
+    wpm.innerText=0;
+
+    cpm.innerText=0;
+
+    accuracy.innerText="100%";
+
+    mistakes.innerText=0;
+
+    loadParagraph();
+
+});
+</script>
+
+</body>
+</html>

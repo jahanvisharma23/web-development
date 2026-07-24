@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Table Generator</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f2f4f8;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:100vh;
+    padding:30px;
+}
+
+.container{
+    width:100%;
+    max-width:1100px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    color:#333;
+}
+
+.input-box{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+input{
+    width:220px;
+    padding:10px;
+    font-size:18px;
+    border:2px solid #555;
+    border-radius:5px;
+}
+
+button{
+    padding:10px 20px;
+    font-size:16px;
+    border:none;
+    background:#007bff;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+#output{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.table-card{
+    background:white;
+    border-radius:8px;
+    padding:15px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+
+.table-card h2{
+    text-align:center;
+    margin-bottom:10px;
+    color:#007bff;
+}
+
+.table-card p{
+    padding:4px 0;
+    border-bottom:1px solid #ddd;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Multiple Table Generator</h1>
+
+    <div class="input-box">
+        <input type="number" id="number" placeholder="Enter last table (e.g. 5)" min="1">
+        <button onclick="generateTables()">Generate Tables</button>
+        <button onclick="clearTables()">Clear</button>
+    </div>
+
+    <div id="output"></div>
+</div>
+
+<script>
+    function generateTables() {
+
+    let number = parseInt(document.getElementById("number").value);
+    let output = document.getElementById("output");
+
+    output.innerHTML = "";
+
+    if (isNaN(number) || number < 1) {
+        alert("Enter a valid number.");
+        return;
+    }
+
+    for (let i = 1; i <= number; i++) {
+
+        let card = document.createElement("div");
+        card.className = "table-card";
+
+        let heading = document.createElement("h2");
+        heading.innerText = "Table of " + i;
+
+        card.appendChild(heading);
+
+        for (let j = 1; j <= 10; j++) {
+            let line = document.createElement("p");
+            line.innerText = `${i} × ${j} = ${i * j}`;
+            card.appendChild(line);
+        }
+
+        output.appendChild(card);
+    }
+}
+
+function clearTables(){
+    document.getElementById("output").innerHTML = "";
+    document.getElementById("number").value = "";
+}
+
+document.getElementById("number").addEventListener("keypress", function(event){
+    if(event.key === "Enter"){
+        generateTables();
+    }
+});
+</script>
+</body>
+</html>
